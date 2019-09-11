@@ -32,13 +32,16 @@ def create_menu():
 
 
 def add_book():
-    new_book = ui.get_book_info()
-    new_book.save()
+    try: 
+        new_book = ui.get_book_info()
+        new_book.save()
+    except:
+        print('Cannot add the same book, please enter a unique book.')
     
 
 def show_read_books():
-    read_books = store.get_books_by_read_value(True)
-    ui.show_books(read_books)
+        read_books = store.get_books_by_read_value(True)
+        ui.show_books(read_books)        
 
 
 def show_unread_books():
