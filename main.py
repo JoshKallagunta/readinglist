@@ -26,7 +26,9 @@ def create_menu():
     menu.add_option('4', 'Show Read Books', show_read_books)
     menu.add_option('5', 'Show All Books', show_all_books)
     menu.add_option('6', 'Change Book Read Status', change_read)
-    menu.add_option('Q', 'Quit', quit_program)
+    
+    #Added lowercase 'q' so that it is not case sensetive 
+    menu.add_option('Q' 'q', 'Quit', quit_program)
 
     return menu
 
