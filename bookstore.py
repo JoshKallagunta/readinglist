@@ -18,6 +18,7 @@ class Book:
 
 
     def save(self):
+        ''' Adds a book to the store, if it is already there, it will update. '''
         if self.id:
             self.bookstore._update_book(self)
         else:

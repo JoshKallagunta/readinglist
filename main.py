@@ -26,19 +26,24 @@ def create_menu():
     menu.add_option('4', 'Show Read Books', show_read_books)
     menu.add_option('5', 'Show All Books', show_all_books)
     menu.add_option('6', 'Change Book Read Status', change_read)
-    menu.add_option('Q', 'Quit', quit_program)
+    
+    #Added lowercase 'q' so that it is not case sensetive 
+    menu.add_option('Q' 'q', 'Quit', quit_program)
 
     return menu
 
 
 def add_book():
-    new_book = ui.get_book_info()
-    new_book.save()
+    try: 
+        new_book = ui.get_book_info()
+        new_book.save()
+    except:
+        print('Cannot add the same book, please enter a unique book.')
     
 
 def show_read_books():
-    read_books = store.get_books_by_read_value(True)
-    ui.show_books(read_books)
+        read_books = store.get_books_by_read_value(True)
+        ui.show_books(read_books)        
 
 
 def show_unread_books():
@@ -59,11 +64,18 @@ def search_book():
 
 def change_read():
 
-    book_id = ui.get_book_id()
-    book = store.get_book_by_id(book_id)  
-    new_read = ui.get_read_value()     
-    book.read = new_read 
-    book.save()
+#Added a while True loop to print if the user has read or not read the book 
+#based on their user input 
+    while True:
+        book_id = ui.get_book_id()
+        book = store.get_book_by_id(book_id)  
+        new_read = ui.get_read_value()     
+        book.read = new_read 
+        book.save()
+        print('You have read ' + book )
+        if book.read == new_read:
+            print('You have not read ' + book )
+    
     
 
 def quit_program():
