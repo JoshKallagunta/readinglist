@@ -41,6 +41,7 @@ def delete_book():
         delete = ui.ask_question('Enter book ID')
         if delete = id:
             bookstore.delete_book
+        return None
     
     except:
         ui.message('Error: Book Not Found')

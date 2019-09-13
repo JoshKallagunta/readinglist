@@ -67,6 +67,7 @@ def get_read_value():
             print('Type \'read\' or \'not read\'')
 
 
+
 def ask_question(question):
     """ Ask user question
     :param: the question to ask
