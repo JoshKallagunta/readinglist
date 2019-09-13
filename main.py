@@ -26,6 +26,7 @@ def create_menu():
     menu.add_option('4', 'Show Read Books', show_read_books)
     menu.add_option('5', 'Show All Books', show_all_books)
     menu.add_option('6', 'Change Book Read Status', change_read)
+    menu.add_option('7', 'Delete Book', delete_book)
     menu.add_option('Q', 'Quit', quit_program)
 
     return menu
@@ -34,6 +35,17 @@ def create_menu():
 def add_book():
     new_book = ui.get_book_info()
     new_book.save()
+
+def delete_book():
+    try:
+        delete = ui.ask_question('Enter book ID')
+        if delete = id:
+            bookstore.delete_book
+    
+    except:
+        ui.message('Error: Book Not Found')
+
+        
     
 
 def show_read_books():
